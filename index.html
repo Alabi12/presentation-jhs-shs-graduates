@@ -3,492 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Inner Anchor - Resilience & Discipline</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .app-header {
-            text-align: center;
-            color: white;
-            margin-bottom: 30px;
-            padding: 20px;
-        }
-
-        .app-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .app-header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .content-section {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .content-section:hover {
-            transform: translateY(-5px);
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #667eea;
-        }
-
-        .section-icon {
-            font-size: 2rem;
-            margin-right: 15px;
-            color: #667eea;
-        }
-
-        .section-header h2 {
-            color: #333;
-            font-size: 1.8rem;
-        }
-
-        .content-body {
-            font-size: 1.1rem;
-        }
-
-        .tool-card {
-            background: #f8f9fa;
-            border-left: 4px solid #667eea;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 8px;
-        }
-
-        .tool-card h4 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-
-        .video-placeholder {
-            background: #e9ecef;
-            height: 200px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 20px 0;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .video-placeholder:hover {
-            background: #dee2e6;
-        }
-
-        .video-placeholder i {
-            font-size: 3rem;
-            color: #667eea;
-        }
-
-        .sidebar {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            height: fit-content;
-            position: sticky;
-            top: 20px;
-        }
-
-        .voice-controls {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .voice-btn {
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1rem;
-            margin: 5px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .voice-btn:hover {
-            background: #5a6fd8;
-            transform: scale(1.05);
-        }
-
-        .voice-btn i {
-            font-size: 1.2rem;
-        }
-
-        .progress-section {
-            margin: 25px 0;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: #e9ecef;
-            border-radius: 4px;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: #667eea;
-            width: 0%;
-            transition: width 0.5s ease;
-        }
-
-        .action-plan {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .action-plan h4 {
-            color: #856404;
-            margin-bottom: 15px;
-        }
-
-        .checklist {
-            list-style: none;
-        }
-
-        .checklist li {
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .checklist input {
-            margin-right: 10px;
-        }
-
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-        }
-
-        .nav-btn {
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .nav-btn:hover {
-            background: #5a6fd8;
-            transform: translateY(-2px);
-        }
-
-        .nav-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .quote {
-            font-style: italic;
-            text-align: center;
-            color: #666;
-            margin: 20px 0;
-            padding: 15px;
-            border-left: 3px solid #667eea;
-            background: #f8f9fa;
-        }
-
-        .hidden {
-            display: none;
-        }
-    </style>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Success Planner | Graduate Resilience & Goal Setting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <p>Preparing your success journey...</p>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <h2 class="mobile-title">Success Planner</h2>
+    </div>
+
     <div class="container">
-        <header class="app-header">
-            <h1>Your Inner Anchor</h1>
-            <p>Building Unshakeable Resilience and Focus for Your Journey Ahead</p>
-        </header>
+        <!-- Sidebar (Hidden on mobile by default) -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1><i class="fas fa-rocket"></i> Success Planner</h1>
+                <button class="close-sidebar" id="closeSidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
 
-        <div class="main-content">
-            <div class="content-area">
-                <!-- Section 1: The Hook -->
-                <section id="section1" class="content-section">
-                    <div class="section-header">
-                        <div class="section-icon">🎯</div>
-                        <h2>Your "And Then What?" Moment</h2>
+            <div class="progress-section">
+                <h3><i class="fas fa-chart-line"></i> Your Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p id="progressText">0% Complete</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
                     </div>
-                    <div class="content-body">
-                        <p>You've studied hard, passed your exams, and you're here. But as you stand on this launchpad, I want to ask you a very personal question: <strong>‘And then what?’</strong></p>
-                        
-                        <div class="video-placeholder" onclick="playVideo('hook')">
-                            <i class="fas fa-play-circle"></i>
-                            <span>Watch: Understanding Your Journey</span>
-                        </div>
-
-                        <p>You get to campus... <em>and then what?</em> You face your first university-level exam... <em>and then what?</em> You feel overwhelmed and lonely... <em>and then what?</em></p>
-                        
-                        <div class="quote">
-                            "The path ahead is not a straight line. It's a journey with incredible highs and challenging lows."
-                        </div>
-
-                        <p>Today, we're not talking about <em>what</em> you're going to study, but <strong>who you need to become</strong> to thrive through all of it. This is about your two most important personal superpowers: <strong>Resilience</strong> and <strong>Discipline</strong>.</p>
+                    <div class="stat-content">
+                        <div class="stat-number" id="completedSections">0</div>
+                        <div class="stat-label">Sections</div>
                     </div>
-                </section>
-
-                <!-- Section 2: Resilience -->
-                <section id="section2" class="content-section hidden">
-                    <div class="section-header">
-                        <div class="section-icon">💪</div>
-                        <h2>Resilience: Your Personal Ability to Bounce Forward</h2>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-tasks"></i>
                     </div>
-                    <div class="content-body">
-                        <p><strong>Your New Relationship with Failure:</strong> Let's be honest: you will face setbacks. Resilience isn't about avoiding these moments; it's about how you talk to yourself when they happen.</p>
-                        
-                        <div class="tool-card">
-                            <h4>Your Practical Tool: The Learning Reflection</h4>
-                            <p>When you hit a wall, don't just shut down. Ask yourself:</p>
-                            <ol>
-                                <li><strong>What exactly happened?</strong> (e.g., "I failed my first calculus quiz.")</li>
-                                <li><strong>What is this teaching me?</strong> (e.g., "My high school study habits aren't enough.")</li>
-                                <li><strong>What is one small step I will take now?</strong> (e.g., "I will find a study partner this week.")</li>
-                            </ol>
-                        </div>
-
-                        <div class="video-placeholder" onclick="playVideo('resilience')">
-                            <i class="fas fa-play-circle"></i>
-                            <span>Watch: Building Resilience in Action</span>
-                        </div>
-
-                        <p><strong>Find Your Personal "Why":</strong> Your 'Why' is your anchor. Why are you doing this? Write it down. Keep it close. Let it be the fire that keeps you going on the hard days.</p>
+                    <div class="stat-content">
+                        <div class="stat-number" id="completedActivities">0</div>
+                        <div class="stat-label">Activities</div>
                     </div>
-                </section>
+                </div>
+            </div>
 
-                <!-- Section 3: Discipline -->
-                <section id="section3" class="content-section hidden">
-                    <div class="section-header">
-                        <div class="section-icon">⚡</div>
-                        <h2>Discipline: Your Personal Engine for Freedom</h2>
-                    </div>
-                    <div class="content-body">
-                        <p><strong>Discipline = Your Personal Freedom:</strong> The discipline to study during the week gives you the freedom to enjoy your weekend without stress or guilt.</p>
-                        
-                        <div class="tool-card">
-                            <h4>Build Your Personal System</h4>
-                            <p><strong>Focus Sprints:</strong> Use a timer. Give one task your full focus for just 25 minutes—phone away, notifications off. Then, a 5-minute break.</p>
-                            <p><strong>You are the CEO of Your Time:</strong> Schedule your day. Block out time for lectures, studies, meals, and rest.</p>
-                            <p><strong>Your One Most Important Thing:</strong> Each morning, ask: "What is the ONE thing I can do today that will make everything else easier?"</p>
-                        </div>
+            <nav class="section-nav">
+                <h3><i class="fas fa-compass"></i> Navigation</h3>
+                <div class="nav-items">
+                    <button class="nav-item active" data-section="1">
+                        <i class="fas fa-bullseye"></i>
+                        <span>The Hook</span>
+                        <div class="nav-progress"></div>
+                    </button>
+                    <button class="nav-item" data-section="2">
+                        <i class="fas fa-fist-raised"></i>
+                        <span>Resilience</span>
+                        <div class="nav-progress"></div>
+                    </button>
+                    <button class="nav-item" data-section="3">
+                        <i class="fas fa-clock"></i>
+                        <span>Discipline</span>
+                        <div class="nav-progress"></div>
+                    </button>
+                    <button class="nav-item" data-section="4">
+                        <i class="fas fa-tasks"></i>
+                        <span>Goal Setting</span>
+                        <div class="nav-progress"></div>
+                    </button>
+                    <button class="nav-item" data-section="5">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Daily Routine</span>
+                        <div class="nav-progress"></div>
+                    </button>
+                    <button class="nav-item" data-section="6">
+                        <i class="fas fa-rocket"></i>
+                        <span>Action Plan</span>
+                        <div class="nav-progress"></div>
+                    </button>
+                </div>
+            </nav>
 
-                        <div class="video-placeholder" onclick="playVideo('discipline')">
-                            <i class="fas fa-play-circle"></i>
-                            <span>Watch: Time Management Techniques</span>
-                        </div>
-                    </div>
-                </section>
+            <div class="quick-actions">
+                <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                <button class="quick-btn" onclick="app.readCurrentSection()">
+                    <i class="fas fa-volume-up"></i> Read Section
+                </button>
+                <button class="quick-btn" onclick="app.saveProgress()">
+                    <i class="fas fa-save"></i> Save Progress
+                </button>
+                <button class="quick-btn" onclick="app.exportData()">
+                    <i class="fas fa-download"></i> Export Data
+                </button>
+            </div>
+        </aside>
 
-                <!-- Section 4: Action Plan -->
-                <section id="section4" class="content-section hidden">
-                    <div class="section-header">
-                        <div class="section-icon">🚀</div>
-                        <h2>Your Personal Action Plan</h2>
-                    </div>
-                    <div class="content-body">
-                        <div class="action-plan">
-                            <h4>Your Challenge Starts Today</h4>
-                            <p>Make these two personal promises to yourself:</p>
-                            <ul class="checklist">
-                                <li>
-                                    <input type="checkbox" id="promise1">
-                                    <label for="promise1"><strong>I will embrace the stumbles.</strong> Every setback is a setup for a smarter comeback.</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="promise2">
-                                    <label for="promise2"><strong>I will own my time.</strong> I am the boss of my schedule, focus, and habits.</label>
-                                </li>
-                            </ul>
-                        </div>
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="breadcrumb">
+                    <span id="currentSectionTitle">Your "And Then What?" Moment</span>
+                </div>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </header>
 
-                        <div class="quote">
-                            "You have the intelligence and the talent. Now, it's about building the inner strength to match."
-                        </div>
+            <div class="content-scroll">
+                <!-- Dynamic sections will be loaded here -->
+                <div id="contentContainer"></div>
 
-                        <p><strong>What's your first step?</strong> Think about one challenge you see ahead, and what's one step you can take to build your resilience or discipline for it.</p>
-                    </div>
-                </section>
-
+                <!-- Navigation Buttons -->
                 <div class="nav-buttons">
-                    <button id="prevBtn" class="nav-btn" onclick="navigate(-1)" disabled>
+                    <button id="prevBtn" class="btn btn-outline" onclick="app.navigate(-1)" disabled>
                         <i class="fas fa-arrow-left"></i> Previous
                     </button>
-                    <button id="nextBtn" class="nav-btn" onclick="navigate(1)">
+                    <div class="section-indicator">
+                        <span id="currentSection">1</span> of <span id="totalSections">6</span>
+                    </div>
+                    <button id="nextBtn" class="btn btn-primary" onclick="app.navigate(1)">
                         Next <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
+        </main>
 
-            <div class="sidebar">
-                <div class="voice-controls">
-                    <h3>Listen & Learn</h3>
-                    <button class="voice-btn" onclick="readCurrentSection()">
-                        <i class="fas fa-volume-up"></i> Read This Section
-                    </button>
-                    <button class="voice-btn" onclick="stopReading()">
-                        <i class="fas fa-stop"></i> Stop
-                    </button>
-                </div>
-
-                <div class="progress-section">
-                    <h3>Your Progress</h3>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progressFill"></div>
-                    </div>
-                    <p id="progressText">1/4 Sections Complete</p>
-                </div>
-
-                <div class="quick-tips">
-                    <h3>Quick Tips</h3>
-                    <ul class="checklist">
-                        <li><input type="checkbox" id="tip1"><label for="tip1">Practice the 25/5 focus method today</label></li>
-                        <li><input type="checkbox" id="tip2"><label for="tip2">Write down your personal "Why"</label></li>
-                        <li><input type="checkbox" id="tip3"><label for="tip3">Identify one potential challenge ahead</label></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <!-- Toast Notifications -->
+        <div id="toastContainer" class="toast-container"></div>
     </div>
 
-    <script>
-        let currentSection = 1;
-        const totalSections = 4;
-        let speechSynthesis = window.speechSynthesis;
-
-        function updateProgress() {
-            const progressFill = document.getElementById('progressFill');
-            const progressText = document.getElementById('progressText');
-            const progress = (currentSection / totalSections) * 100;
-            
-            progressFill.style.width = `${progress}%`;
-            progressText.textContent = `${currentSection}/${totalSections} Sections Complete`;
-        }
-
-        function navigate(direction) {
-            // Hide current section
-            document.getElementById(`section${currentSection}`).classList.add('hidden');
-            
-            // Update current section
-            currentSection += direction;
-            
-            // Show new section
-            document.getElementById(`section${currentSection}`).classList.remove('hidden');
-            
-            // Update navigation buttons
-            document.getElementById('prevBtn').disabled = currentSection === 1;
-            document.getElementById('nextBtn').disabled = currentSection === totalSections;
-            
-            // Update progress
-            updateProgress();
-            
-            // Stop any ongoing speech
-            stopReading();
-        }
-
-        function readCurrentSection() {
-            // Stop any ongoing speech first
-            stopReading();
-            
-            const currentSectionElement = document.getElementById(`section${currentSection}`);
-            const text = currentSectionElement.innerText;
-            
-            const speech = new SpeechSynthesisUtterance();
-            speech.text = text;
-            speech.rate = 0.9;
-            speech.pitch = 1;
-            speech.volume = 1;
-            
-            speechSynthesis.speak(speech);
-        }
-
-        function stopReading() {
-            if (speechSynthesis.speaking) {
-                speechSynthesis.cancel();
-            }
-        }
-
-        function playVideo(topic) {
-            // In a real app, this would play actual videos
-            // For this demo, we'll show an alert and simulate video content
-            const videoTitles = {
-                'hook': 'Understanding Your Journey',
-                'resilience': 'Building Resilience in Action', 
-                'discipline': 'Time Management Techniques'
-            };
-            
-            alert(`Playing video: ${videoTitles[topic]}\n\nIn a full implementation, this would launch an educational video about ${topic}.`);
-            
-            // Simulate adding a completion checkmark
-            const tipCheckboxes = document.querySelectorAll('.quick-tips input[type="checkbox"]');
-            if (tipCheckboxes.length > 0) {
-                tipCheckboxes[0].checked = true;
-            }
-        }
-
-        // Initialize progress on load
-        document.addEventListener('DOMContentLoaded', updateProgress);
-    </script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
